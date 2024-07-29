@@ -11,7 +11,7 @@ const Navbar = () => {
   const navigate=useNavigate();
 
  const handleLogout=()=>{
-    axios.get("http://localhost:4005/logout")
+    axios.get("https://mern-product-app-xak2.vercel.app/logout")
     .then(res=> {
       if(res.data=== "success")
       alert("user logout");

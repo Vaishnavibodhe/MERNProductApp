@@ -26,7 +26,7 @@ formData.append('bgcolor', bgcolor);
 formData.append('panelcolor', panelcolor);
 formData.append('textcolor', textcolor);
 
-axios.post("http://localhost:4005/create",formData)
+axios.post("https://mern-product-app-xak2.vercel.app/create",formData)
 .then(result => {
   console.log(result)
     navigate("/alldata")
