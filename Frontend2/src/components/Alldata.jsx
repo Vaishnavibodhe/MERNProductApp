@@ -9,7 +9,7 @@ const Alldata = () => {
 
 
   useEffect(() => {
-    axios.get("https://mernproductapp-1.onrender.com/getproducts")
+    axios.get("http://localhost:4005/getproducts")
       .then(response => {
         console.log(response.data)
         setProducts(response.data);
@@ -21,7 +21,7 @@ const Alldata = () => {
 
   return (
     <div className=" px-32 py-24  flex flex-col gap-5 h-screen">
-      <h1 className=" flex justify-center text-3xl font-serif text-slate-500 hover:text-black mb-14  "> All Products</h1>
+      <h1 className=" flex justify-center text-3xl font-serif text-slate-500 hover:text-black mb-14  ">Here All Products</h1>
       <div className=" gap-10 flex flex-wrap text-white " >
         {products.map(product => (
            <Link to={`/product/${product._id}`}>

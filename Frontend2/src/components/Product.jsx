@@ -12,7 +12,7 @@ const Product = () => {
   const navigate=useNavigate();
 
   useEffect(() => {
-    axios.get(`https://mernproductapp-1.onrender.com/getproductbyid/${id}`)
+    axios.get(`http://localhost:4005/getproductbyid/${id}`)
       .then(result => {
         const fetchedProduct = result.data;
         setProduct(fetchedProduct);

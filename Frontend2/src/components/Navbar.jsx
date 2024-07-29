@@ -11,7 +11,7 @@ const Navbar = () => {
   const navigate=useNavigate();
 
  const handleLogout=()=>{
-    axios.get("https://mernproductapp-1.onrender.com/logout")
+    axios.get("http://localhost:4005/logout")
     .then(res=> {
       if(res.data=== "success")
       alert("user logout");
@@ -21,7 +21,7 @@ const Navbar = () => {
   return (
     <>
       <div className="px-[20px] w-full">
-        <div className="w-full font-serif hover:text-slate-600 shadow-xl h-[60px] flex bg-white justify-around">
+        <div className="w-full font-serif hover:text-2xl shadow-xl h-[60px] flex bg-white justify-around">
           <div className="mt-5 ml-6 items-center text-2xl text-blue-950">
            <h1>Blog App</h1>
           </div>

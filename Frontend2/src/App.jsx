@@ -18,7 +18,7 @@ const [user, setUser] = useState({});
 
   axios.defaults.withCredentials=true;
   useEffect(()=>{
-axios.get('https://mernproductapp-1.onrender.com/')
+axios.get('http://localhost:4005/')
 .then(user => { console.log("User Data:", user.data)
   setUser(user.data)})
 .catch(err=> console.log(err))

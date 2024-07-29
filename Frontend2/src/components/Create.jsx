@@ -26,7 +26,7 @@ formData.append('bgcolor', bgcolor);
 formData.append('panelcolor', panelcolor);
 formData.append('textcolor', textcolor);
 
-axios.post("https://mernproductapp-1.onrender.com/create",formData)
+axios.post("http://localhost:4005/create",formData)
 .then(result => {
   console.log(result)
     navigate("/alldata")
