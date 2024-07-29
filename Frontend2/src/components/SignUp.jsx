@@ -10,7 +10,7 @@ let navigate=useNavigate();
 
 const handleSubmit=(e)=>{
 e.preventDefault();
-axios.post("http://localhost:4005/signup",{name,email,password})
+axios.post("https://mernproductapp-1.onrender.com/signup",{name,email,password})
 .then(result => {console.log(result)
       navigate("/login");
 })

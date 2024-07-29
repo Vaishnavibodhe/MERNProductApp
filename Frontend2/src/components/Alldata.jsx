@@ -9,7 +9,7 @@ const Alldata = () => {
 
 
   useEffect(() => {
-    axios.get("http://localhost:4005/getproducts")
+    axios.get("https://mernproductapp-1.onrender.com/getproducts")
       .then(response => {
         console.log(response.data)
         setProducts(response.data);

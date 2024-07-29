@@ -11,7 +11,7 @@ const Navbar = () => {
   const navigate=useNavigate();
 
  const handleLogout=()=>{
-    axios.get("http://localhost:4005/logout")
+    axios.get("https://mernproductapp-1.onrender.com/logout")
     .then(res=> {
       if(res.data=== "success")
       alert("user logout");
