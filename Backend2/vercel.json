@@ -7,38 +7,7 @@
       }
     ],
     "routes": [
-      {
-        "src": "/api/create",
-        "dest": "/api/create"
-      },
-      {
-        "src": "/api/getproducts",
-        "dest": "/api/getproducts"
-      },
-      {
-        "src": "/api/getproductbyid/(.*)",
-        "dest": "/api/getproductbyid/$1"
-      },
-      {
-        "src": "/api/deleteproduct/(.*)",
-        "dest": "/api/deleteproduct/$1"
-      },
-      {
-        "src": "/api/signup",
-        "dest": "/api/signup"
-      },
-      {
-        "src": "/api/login",
-        "dest": "/api/login"
-      },
-      {
-        "src": "/api/logout",
-        "dest": "/api/logout"
-      },
-      {
-        "src": "/api",
-        "dest": "/api"
-      },
+    
       {
         "src": "/(.*)",
         "dest": "/index.js"
