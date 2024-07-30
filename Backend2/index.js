@@ -15,7 +15,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/Images', express.static(path.join(__dirname, 'Public/Images'))); // Serve static files
 
 app.use(cors({
-    origin:[ "http://localhost:5173"],
+    origin:[ "http://localhost:5173","https://mern-product-app-xak2.vercel.app/"],
     method:["GET" ,"POST", "PUT","DELETE"],// Allow requests from your frontend origin
     credentials: true // Allow cookies and other credentials
   }));
