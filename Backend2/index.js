@@ -14,14 +14,16 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use('/Images', express.static(path.join(__dirname, 'Public/Images'))); // Serve static files
 
-app.use(cors({
-    origin:[ "http://localhost:5173","https://mern-product-app-xak2.vercel.app/"],
-    method:["GET" ,"POST", "PUT","DELETE"],// Allow requests from your frontend origin
+const corsOptions = {
+    origin: ["http://localhost:5173"],
+    methods: ["GET", "POST", "PUT", "DELETE"], 
     credentials: true // Allow cookies and other credentials
-  }));
+  };
+  
+  app.use(cors(corsOptions));
   app.use(cookieParser());
 
-    mongoose.connect(process.env.URI)
+    mongoose.connect(process.env.URI,{ useNewUrlParser: true, useUnifiedTopology: true })
     .then(()=>{
         console.log("mongodb connected");
     
@@ -33,6 +35,7 @@ app.use(cors({
 .catch((err)=>{
     console.log("connecting to MongoDB:",err)
 })
+
 
 app.use(UserRouter);
 app.use(CreateRouter);

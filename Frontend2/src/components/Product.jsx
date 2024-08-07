@@ -12,7 +12,7 @@ const Product = () => {
   const navigate=useNavigate();
 
   useEffect(() => {
-    axios.get(`https://mern-product-app-xak2.vercel.app/getproductbyid/${id}`)
+    axios.get(`http://localhost:4005/getproductbyid/${id}`)
       .then(result => {
         const fetchedProduct = result.data;
         setProduct(fetchedProduct);
