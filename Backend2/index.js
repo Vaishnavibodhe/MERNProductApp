@@ -15,7 +15,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/Images', express.static(path.join(__dirname, 'Public/Images'))); // Serve static files
 
 const corsOptions = {
-    origin: ["http://localhost:5173"],
+    origin: ["http://localhost:5173","http://frontend-theta-five-51.vercel.app"],
     methods: ["GET", "POST", "PUT", "DELETE"], 
     credentials: true // Allow cookies and other credentials
   };
