@@ -12,7 +12,7 @@ const Product = () => {
   const navigate=useNavigate();
 
   useEffect(() => {
-    axios.get(`http://backend-xi-six-51.vercel.app/getproductbyid/${id}`)
+    axios.get(`https://backend-xi-six-51.vercel.app/getproductbyid/${id}`)
       .then(result => {
         const fetchedProduct = result.data;
         setProduct(fetchedProduct);

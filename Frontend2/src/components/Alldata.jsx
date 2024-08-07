@@ -9,7 +9,7 @@ const Alldata = () => {
 
 
   useEffect(() => {
-    axios.get("http://backend-xi-six-51.vercel.app/getproducts")
+    axios.get("https://backend-xi-six-51.vercel.app/getproducts")
       .then(response => {
         console.log(response.data)
         setProducts(response.data);
