@@ -18,7 +18,7 @@ const [user, setUser] = useState({});
 
   axios.defaults.withCredentials=true;
   useEffect(()=>{
-axios.get('http://localhost:4005/')
+axios.get('http://backend-chi-ivory.vercel.app/')
 .then(user => { console.log("User Data:", user.data)
   setUser(user.data)})
 .catch(err=> console.log(err))
