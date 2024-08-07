@@ -11,7 +11,7 @@ const Navbar = () => {
   const navigate=useNavigate();
 
  const handleLogout=()=>{
-    axios.get("http://backend-xi-six-51.vercel.app/logout")
+    axios.get("http://localhost:4005/logout")
     .then(res=> {
       if(res.data=== "success")
       alert("user logout");
