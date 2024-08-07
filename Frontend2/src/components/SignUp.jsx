@@ -10,7 +10,7 @@ let navigate=useNavigate();
 
 const handleSubmit=(e)=>{
 e.preventDefault();
-axios.post("http://backend-chi-ivory.vercel.app/signup",{name,email,password})
+axios.post("https://backend-chi-ivory.vercel.app/signup",{name,email,password})
 .then(result => {console.log(result)
       navigate("/login");
 })

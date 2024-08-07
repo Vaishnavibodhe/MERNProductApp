@@ -26,7 +26,7 @@ formData.append('bgcolor', bgcolor);
 formData.append('panelcolor', panelcolor);
 formData.append('textcolor', textcolor);
 
-axios.post("http://backend-chi-ivory.vercel.app/create",formData)
+axios.post("https://backend-chi-ivory.vercel.app/create",formData)
 .then(result => {
   console.log(result)
     navigate("/alldata")
