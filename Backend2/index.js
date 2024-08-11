@@ -15,7 +15,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/Images', express.static(path.join(__dirname, 'Public/Images'))); // Serve static files
 
 const corsOptions = {
-    origin: ["https://frontend-eosin-ten-65.vercel.app"],
+    origin: ["http://localhost:5173","https://frontend-eosin-ten-65.vercel.app"],
     methods: ["GET", "POST", "PUT", "DELETE"], 
     credentials: true 
   };
@@ -36,7 +36,9 @@ const corsOptions = {
     console.log("connecting to MongoDB:",err)
 })
 
-
+app.get("/",(req,res)=>{
+res.send("helloworld")
+})
 app.use(UserRouter);
 app.use(CreateRouter);
 
