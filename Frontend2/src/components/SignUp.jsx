@@ -13,7 +13,7 @@ const handleSubmit=(e)=>{
 e.preventDefault();
 axios.post("https://backend-chi-ivory.vercel.app/signup",{name,email,password})
 .then(result => {console.log(result)
-      navigate("/login");
+      documet.window.href="/login"
 })
 .catch(err=> console.log(err))
 }
