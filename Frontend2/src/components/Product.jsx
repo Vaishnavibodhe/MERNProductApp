@@ -12,7 +12,7 @@ const Product = () => {
   const navigate=useNavigate();
 
   useEffect(() => {
-    axios.get(`https://backend-chi-ivory.vercel.app/getproductbyid/${id}`)
+    axios.get(`https://backend3-umpv.onrender.com/getproductbyid/${id}`)
       .then(result => {
         const fetchedProduct = result.data;
         setProduct(fetchedProduct);
@@ -22,7 +22,7 @@ const Product = () => {
   }, [id]);
 
   const deleteProduct=(id)=>{
-    axios.delete(`http://localhost:4005/deleteproduct/${id}`)
+    axios.delete(`https://backend3-umpv.onrender.com/deleteproduct/${id}`)
     .then(result => {
       console.log(result)
       navigate("/alldata")
@@ -42,7 +42,7 @@ const Product = () => {
           className="">
           <h2 className="font-bold px-8 py-4">{product.name}</h2>
           <div className="">
-            <img src={`http://localhost:4005/Images/${product.file}`} alt={product.name} className="w-full h-[60%] object-cover" />
+            <img src={`https://backend3-umpv.onrender.com/Images/${product.file}`} alt={product.name} className="w-full h-[60%] object-cover" />
           </div>
           <div className="w-full px-4 flex justify-between items-center" style={{ backgroundColor: product.panelcolor }}>
             <div className="">

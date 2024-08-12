@@ -11,9 +11,9 @@ let navigate=useNavigate();
 
 const handleSubmit=(e)=>{
 e.preventDefault();
-axios.post("https://backend-chi-ivory.vercel.app/signup",{name,email,password})
+axios.post(`https://backend3-umpv.onrender.com/signup`,{name,email,password})
 .then(result => {console.log(result)
-      documet.window.href="/login"
+      navigate("/login");
 })
 .catch(err=> console.log(err))
 }

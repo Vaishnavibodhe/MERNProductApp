@@ -8,11 +8,13 @@ const [email,setEmail] = useState("");
 const [password,setPassword] = useState("");
 let navigate=useNavigate();
 
+axios.defaults.withCredentials=true;
 const handleSubmit=(e)=>{
 e.preventDefault();
-axios.post("https://backend-chi-ivory.vercel.app/login",{email,password})
+axios.post("https://backend3-umpv.onrender.com/login",{email,password})
 .then(result => {console.log(result)
-    window.location.href="/"
+  
+  navigate("/create")
 })
 .catch(err=> console.log(err))
 }

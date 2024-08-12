@@ -9,7 +9,7 @@ const Alldata = () => {
 
 
   useEffect(() => {
-    axios.get("https://backend-chi-ivory.vercel.app/getproducts")
+    axios.get("https://backend3-umpv.onrender.com/getproducts")
       .then(response => {
         console.log(response.data)
         setProducts(response.data);
@@ -30,7 +30,7 @@ const Alldata = () => {
           className=" border-b-2 rounded-md w-60">
             <h2 className="font-bold px-8 py-4">{product.name} </h2>
             <div className=" w-full h-52 flex items-center justify-center ">
-              <img src={`https://backend-chi-ivory.vercel.app/Images/${product.file}`} alt={product.name} className="w-full object-cover" />
+              <img src={`https://backend3-umpv.onrender.com/Images/${product.file}`} alt={product.name} className="w-full object-cover" />
             </div>
             <div className="w-full px-4  flex justify-between items-center" style={{ backgroundColor: product.panelcolor }}>
             <div className="">
