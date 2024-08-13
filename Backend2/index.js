@@ -48,7 +48,7 @@ app.post("/login",(req,res)=>{
        if(user){
         bcrypt.compare(password,user.password,(err,response)=>{
             if(response){
-                const token=jwt.sign({email:user.email}, "secret",{expiresIn:'1h'})
+                const token=jwt.sign({email:user.email}, process.env.SECRET_KEY,{expiresIn:'1h'})
                 res.cookie('token', token)
             return res.json("success")
             }else{ 
@@ -70,7 +70,7 @@ const verifyUser = (req, res, next) => {
       return res.status(403).json({ message: "Token is not available" });
     }
   
-    jwt.verify(token, "secret", (err, decoded) => {
+    jwt.verify(token, process.env.SECRET_KEY, (err, decoded) => {
       if (err) {
         return res.status(403).json({ message: "Token is invalid" });
       }
