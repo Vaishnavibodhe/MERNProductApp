@@ -4,8 +4,8 @@ import { Link, useNavigate } from "react-router-dom";
 
 const Create = () => {
 
-  const [file, setFile] = useState(null);
-  const [name, setName] = useState();
+  const [file, setFile] = useState("");
+  const [name, setName] = useState("");
   const [price, setPrice] = useState(0);
   const [discount, setDiscount] = useState(0);
   const [bgcolor, setBgcolor] = useState();
@@ -26,10 +26,7 @@ const Create = () => {
     formData.append('panelcolor', panelcolor);
     formData.append('textcolor', textcolor);
 
-    axios.post('https://backend3-umpv.onrender.com/create', formData,{
-     
-      withCredentials: true 
-    })
+    axios.post('http://localhost:4005/create', formData )
       .then(result => {
         console.log(result);
         navigate("/alldata"); 

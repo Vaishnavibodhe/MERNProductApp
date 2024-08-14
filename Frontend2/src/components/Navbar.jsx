@@ -5,13 +5,13 @@ import axios from "axios"
 import {useNavigate} from "react-router-dom"
 
 const Navbar = () => {
-  const [Logout, setLogout] = useState()
+  
   const user=useContext(userContext);
   console.log("User context in Navbar:", user);
   const navigate=useNavigate();
 
  const handleLogout=()=>{
-    axios.get("https://backend3-umpv.onrender.com/logout")
+    axios.get("http://localhost:4005/logout")
     .then(res=> {
       if(res.data=== "success")
       alert("user logout");

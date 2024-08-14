@@ -11,7 +11,7 @@ let navigate=useNavigate();
 
 const handleSubmit=(e)=>{
 e.preventDefault();
-axios.post(`https://backend3-umpv.onrender.com/signup`,{name,email,password})
+axios.post('http://localhost:4005/signup',{name,email,password})
 .then(result => {console.log(result)
       navigate("/login");
 })
