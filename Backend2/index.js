@@ -48,7 +48,7 @@ app.post("/login",(req,res)=>{
        if(user){
         bcrypt.compare(password,user.password,(err,response)=>{
             if(response){
-                var token=jwt.sign({email:user.email}, process.env.SECRET_KEY,{expiresIn:'1h'})
+                const token=jwt.sign({ email: user.email, id: user._id }, process.env.SECRET_KEY,{expiresIn:'1h'})
                 res.cookie('token', token)
             return res.json("success")
             }else{ 
@@ -79,6 +79,7 @@ const verifyUser = (req, res, next) => {
       next();
     });
   };
+  
   
   // Route to get user data
   app.get('/', verifyUser, (req, res) => {
