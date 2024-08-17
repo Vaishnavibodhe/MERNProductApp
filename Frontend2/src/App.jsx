@@ -5,7 +5,7 @@ import SignUp from "./components/SignUp"
 import Login from "./components/Login"
 import Home from "./components/Home"
 import Create from "./components/Create"
-import Alldata from "./components/Alldata"
+import DesignPage from "./components/DesignPage"
 import Product from "./components/Product"
 
 import { BrowserRouter ,Routes ,Route} from 'react-router-dom'
@@ -17,8 +17,16 @@ const App = () => {
 const [user, setUser] = useState({});
 
   axios.defaults.withCredentials=true;
+
   useEffect(()=>{
-axios.get('http://localhost:4005.com/')
+    const token = localStorage.getItem('token'); 
+axios.get('http://localhost:4005/',{
+  headers: {
+    'Authorization': `Bearer ${token}`, // Add the token to headers
+    'Content-Type': 'application/json'
+}
+})
+
 .then(user => { console.log("User Data:", user.data)
   setUser(user.data)})
 .catch(err=> console.log(err))
@@ -32,11 +40,11 @@ axios.get('http://localhost:4005.com/')
       <Routes>
         <Route exact path="/signup" element={<SignUp/>}/>
         <Route exact path="/login" element={<Login/>}/>
-        <Route exact path="/" element={<Home/>}/>
+        <Route exact path="/getproducts" element={<Home/>}/>
         <Route exact path="/create" element={<Create/>}/>
-        <Route exact path="/alldata" element={<Alldata/>}/>
+        
         <Route exact path="/product/:id" element={<Product/>}/>
-
+        <Route exact path="/" element={<DesignPage/>}/>
 
       </Routes>
       

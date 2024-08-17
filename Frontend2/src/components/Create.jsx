@@ -3,14 +3,13 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 
 const Create = () => {
-
-  const [file, setFile] = useState("");
+  const [file, setFile] = useState(null);
   const [name, setName] = useState("");
   const [price, setPrice] = useState(0);
   const [discount, setDiscount] = useState(0);
-  const [bgcolor, setBgcolor] = useState();
-  const [panelcolor, setPanelcolor] = useState();
-  const [textcolor, setTextcolor] = useState();
+  const [bgcolor, setBgcolor] = useState("");
+  const [panelcolor, setPanelcolor] = useState("");
+  const [textcolor, setTextcolor] = useState("");
 
   const navigate = useNavigate();
 
@@ -26,17 +25,22 @@ const Create = () => {
     formData.append('panelcolor', panelcolor);
     formData.append('textcolor', textcolor);
 
-    axios.post('http://localhost:4005/create', formData )
-      .then(result => {
+    const token = localStorage.getItem('token'); 
+
+    axios.post('http://localhost:4005/create', formData, {
+      headers: {
+        'Authorization': `Bearer ${token}`, 
+        'Content-Type': 'multipart/form-data', 
+      }
+    })
+    .then(result => {
         console.log(result);
-        navigate("/alldata"); 
-        // Use navigate for redirection
-      })
-      .catch(err => {
-        console.log(err);
+        navigate("/"); 
+    })
+    .catch(err => {
+        console.error(err);
         alert('Error creating product. Please try again.');
-        // Optionally, set some error state to provide feedback to users
-      });
+    });
   }
 
   return (
@@ -44,7 +48,7 @@ const Create = () => {
       <div className="container px-10 py-20 flex flex-grow">
         <div className="w-[25%] flex h-screen flex-col items-start">
           <div className="flex flex-col">
-            <Link to="/alldata" className="block w-fit mb-2 hover:text-2xl cursor-pointer">
+            <Link to="/" className="block w-fit mb-2 hover:text-2xl cursor-pointer">
               All Products
             </Link>
           </div>
@@ -61,6 +65,7 @@ const Create = () => {
                   type="file"
                   className="py-2 px-4 rounded"
                   onChange={(e) => setFile(e.target.files[0])}
+                  required
                 />
               </div>
               <div className="grid grid-cols-2 gap-4">
@@ -71,6 +76,7 @@ const Create = () => {
                   className="border p-2 rounded w-full"
                   value={name}
                   onChange={e => setName(e.target.value)}
+                  required
                 />
                 <input
                   name="price"
@@ -79,6 +85,7 @@ const Create = () => {
                   className="border p-2 rounded w-full"
                   value={price}
                   onChange={e => setPrice(e.target.value)}
+                  required
                 />
                 <input
                   name="discount"

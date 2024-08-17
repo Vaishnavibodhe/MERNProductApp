@@ -11,11 +11,19 @@ const Navbar = () => {
   const navigate=useNavigate();
 
  const handleLogout=()=>{
-    axios.get("http://localhost:4005/logout")
+  
+  const token = localStorage.getItem('token'); 
+
+    axios.get('http://localhost:4005/logout', {
+      headers: {
+        'Authorization': `Bearer ${token}`, // Add the token to headers
+        'Content-Type': 'application/json'
+    }
+    })
     .then(res=> {
       if(res.data=== "success")
       alert("user logout");
-      navigate("/");//same page refresh
+      navigate(0);//same page refresh
     }).catch(err=> console.log(err))
   }
   return (
@@ -28,7 +36,7 @@ const Navbar = () => {
           <div className="flex gap-6 items-center">
           <Link to="/">Home</Link>
           {
-            user.email
+            user.name
              ?
             <Link to="/create">Create</Link>
             :

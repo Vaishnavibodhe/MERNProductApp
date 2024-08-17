@@ -13,7 +13,13 @@ const handleSubmit=(e)=>{
 e.preventDefault();
 axios.post('http://localhost:4005/signup',{name,email,password})
 .then(result => {console.log(result)
-      navigate("/login");
+  const token = result.data.token;
+
+  // Save the token to localStorage
+  localStorage.setItem('authToken', token);
+
+  // Redirect to login page
+  navigate("/login");
 })
 .catch(err=> console.log(err))
 }
