@@ -9,7 +9,7 @@ const Home = () => {
   useEffect(() => {
     const token = localStorage.getItem('token');
 
-    axios.get('http://localhost:4005/getproducts', {
+    axios.get('https://backendb-ltn4.onrender.com/admin/getproducts', {
       headers: {
         'Authorization': `Bearer ${token}`, // Add the token to headers
         'Content-Type': 'application/json',

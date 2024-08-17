@@ -27,7 +27,7 @@ const Create = () => {
 
     const token = localStorage.getItem('token'); 
 
-    axios.post('http://localhost:4005/create', formData, {
+    axios.post('http://backendb-ltn4.onrender.com/admin/create', formData, {
       headers: {
         'Authorization': `Bearer ${token}`, 
         'Content-Type': 'multipart/form-data', 
@@ -35,7 +35,7 @@ const Create = () => {
     })
     .then(result => {
         console.log(result);
-        navigate("/"); 
+        navigate("/getproducts"); 
     })
     .catch(err => {
         console.error(err);
@@ -48,7 +48,7 @@ const Create = () => {
       <div className="container px-10 py-20 flex flex-grow">
         <div className="w-[25%] flex h-screen flex-col items-start">
           <div className="flex flex-col">
-            <Link to="/" className="block w-fit mb-2 hover:text-2xl cursor-pointer">
+            <Link to="/getproducts" className="block w-fit mb-2 hover:text-2xl cursor-pointer">
               All Products
             </Link>
           </div>

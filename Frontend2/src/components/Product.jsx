@@ -12,7 +12,7 @@ const Product = () => {
 
   useEffect(() => {
     const token = localStorage.getItem('token');
-    axios.get(`http://localhost:4005/getproductbyid/${id}`, {
+    axios.get(`https://backendb-ltn4.onrender.com/admin/getproductbyid/${id}`, {
       headers: {
         Authorization: `Bearer ${token}`, 
       },
@@ -27,14 +27,14 @@ const Product = () => {
 
   const deleteProduct = (id) => {
     const token = localStorage.getItem('token');
-    axios.delete(`http://localhost:4005/deleteproduct/${id}`, {
+    axios.delete(`https://backendb-ltn4.onrender.com/admin/deleteproduct/${id}`, {
       headers: {
         Authorization: `Bearer ${token}`, 
       },
     })
       .then(result => {
         console.log(result);
-        navigate("/");
+        navigate("/getproducts");
       })
       .catch(err => console.log(err));
   };
@@ -55,7 +55,7 @@ const Product = () => {
           <h2 className="font-bold px-8 py-4">{product.name}</h2>
           <div>
             <img
-              src={`http://localhost:4005/Images/${product.file}`}
+              src={`https://backendb-ltn4.onrender.com/admin/Images/${product.file}`}
               alt={product.name}
               className="w-full h-[60%] object-cover"
             />

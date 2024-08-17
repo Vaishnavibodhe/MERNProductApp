@@ -14,7 +14,7 @@ const Navbar = () => {
   
   const token = localStorage.getItem('token'); 
 
-    axios.get('http://localhost:4005/logout', {
+    axios.get('https://backendb-ltn4.onrender.com/users/logout', {
       headers: {
         'Authorization': `Bearer ${token}`, // Add the token to headers
         'Content-Type': 'application/json'
@@ -38,7 +38,7 @@ const Navbar = () => {
           {
             user.name
              ?
-            <Link to="/create">Create</Link>
+            <Link to="/admin/create">Create</Link>
             :
             <></>
           }
@@ -56,7 +56,7 @@ const Navbar = () => {
               ):
               (
             <div>
-              <Link to="/signup">Signup</Link>
+              <Link to="/users/signup">Signup</Link>
             </div>
               )
             }

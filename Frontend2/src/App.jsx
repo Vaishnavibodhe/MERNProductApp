@@ -38,12 +38,12 @@ axios.get('http://localhost:4005/',{
       <BrowserRouter>
       <Navbar/>
       <Routes>
-        <Route exact path="/signup" element={<SignUp/>}/>
-        <Route exact path="/login" element={<Login/>}/>
-        <Route exact path="/getproducts" element={<Home/>}/>
-        <Route exact path="/create" element={<Create/>}/>
+        <Route exact path="/users/signup" element={<SignUp/>}/>
+        <Route exact path="/users/login" element={<Login/>}/>
+        <Route exact path="/admin/getproducts" element={<Home/>}/>
+        <Route exact path="/admin/create" element={<Create/>}/>
         
-        <Route exact path="/product/:id" element={<Product/>}/>
+        <Route exact path="/admin/product/:id" element={<Product/>}/>
         <Route exact path="/" element={<DesignPage/>}/>
 
       </Routes>
